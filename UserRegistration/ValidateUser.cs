@@ -44,12 +44,12 @@ namespace UserRegistration
         public static void ValidatePassword()
         {
             Console.WriteLine("Rule 1: Password must have contains min 8 characters");
+            Console.WriteLine("Rule 2: Password should have at least one Upper Case");
             Console.Write("Enter Your Password: ");
             string input = Console.ReadLine();
-            string pattern = "^[a-zA-Z]{8,}$";
+            string pattern = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
             CheckValidation(input, pattern);
         }
-
         public static void CheckValidation(string input,string pattern)
         {
             bool res = Regex.IsMatch(input, pattern);
