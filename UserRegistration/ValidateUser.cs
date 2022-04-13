@@ -45,10 +45,11 @@ namespace UserRegistration
         {
             Console.WriteLine("Rule 1: Password must have contains min 8 characters");
             Console.WriteLine("Rule 2: Password should have at least one Upper Case");
-            Console.WriteLine("Rule 2: Password should have at least one numeric value");
+            Console.WriteLine("Rule 3: Password should have at least one numeric value");
+            Console.WriteLine("Rule 4: Password have exactly one special character");
             Console.Write("Enter Your Password: ");
             string input = Console.ReadLine();
-            string pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+            string pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]{1}).{8,}$";
             CheckValidation(input, pattern);
         }
         public static void CheckValidation(string input,string pattern)
