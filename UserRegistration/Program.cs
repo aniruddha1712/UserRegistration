@@ -12,6 +12,7 @@ namespace UserRegistration
         {
             Console.WriteLine("Welcome to the User Registration Program\n");
             ValidateUser.ValidateFirstName();
+            ValidateUser.ValidateLastName();
             Console.ReadLine();
         }
     }

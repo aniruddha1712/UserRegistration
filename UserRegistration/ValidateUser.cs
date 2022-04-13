@@ -11,11 +11,19 @@ namespace UserRegistration
     {
        public static void ValidateFirstName()
         {
-            Console.WriteLine("Enter FirstName:");
             Console.WriteLine("Note: First name starts with Cap and has minimun 3 characters");
+            Console.Write("Enter FirstName:");
             string input = Console.ReadLine();
             string pattern = "^[A-Z][a-z]{2,}$";
             CheckValidation(input,pattern);
+        }
+        public static void ValidateLastName()
+        {
+            Console.WriteLine("Note: Last name starts with Cap and has minimun 3 characters");
+            Console.Write("Enter LastName:");
+            string input = Console.ReadLine();
+            string pattern = "^[A-Z][a-z]{2,}$";
+            CheckValidation(input, pattern);
         }
         public static void CheckValidation(string input,string pattern)
         {
