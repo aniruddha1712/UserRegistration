@@ -33,6 +33,15 @@ namespace UserRegistration
             string pattern = "^[a-z0-9][-a-z0-9._+]+@([a-z0-9]+[.])+[a-z]{2,5}([.]+[a-z]{2})*$";
             CheckValidation(input, pattern);
         }
+        public static void ValidateMobileNumber()
+        {
+            Console.WriteLine("Note: Country code follow by space and 10 digit number");
+            Console.Write("Enter Your Mobile Number: ");
+            string input = Console.ReadLine();
+            string pattern = "^[1-9]{1,2}[ ][1-9][0-9]{9}$";
+            CheckValidation(input, pattern);
+
+        }
         public static void CheckValidation(string input,string pattern)
         {
             bool res = Regex.IsMatch(input, pattern);
