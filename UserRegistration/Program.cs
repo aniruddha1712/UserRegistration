@@ -16,8 +16,10 @@ namespace UserRegistration
             ValidateUser.ValidateLastName();
             ValidateUser.ValidateEmail();
             ValidateUser.ValidateMobileNumber();
+            ValidateUser.ValidatePassword();
 
             Console.ReadLine();
+            Environment.Exit(0);
         }
     }
 }
