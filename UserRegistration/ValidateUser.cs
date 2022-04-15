@@ -9,9 +9,8 @@ namespace UserRegistration
 {
     public class ValidateUser
     {
-       public static string ValidateFirstName(string input)
+        public static string CheckValidation(string input, string pattern)
         {
-            string pattern = "^[A-Z][a-z]{2,}$";
             bool res = Regex.IsMatch(input, pattern);
             if (res)
             {
@@ -25,69 +24,31 @@ namespace UserRegistration
                 return "Invalid";
             }
         }
+        public static string ValidateFirstName(string input)
+        {
+            string pattern = "^[A-Z][a-z]{2,}$";
+            return CheckValidation(input,pattern);
+        }
+        
         public static string ValidateLastName(string input)
         {
             string pattern = "^[A-Z][a-z]{2,}$";
-            bool res = Regex.IsMatch(input, pattern);
-            if (res)
-            {
-                Console.WriteLine("{0} Valid ", input);
-                return input;
-            }
-
-            else
-            {
-                Console.WriteLine("{0} Invalid ", input);
-                return "Invalid";
-            }
+            return CheckValidation(input, pattern);
         }
         public static string ValidateEmail(string input)
         {
             string pattern = "^[a-z0-9][-a-z0-9._+]+@([a-z0-9]+[.])+[a-z]{2,5}([.]+[a-z]{2})*$";
-            bool res = Regex.IsMatch(input, pattern);
-            if (res)
-            {
-                Console.WriteLine("{0} Valid ", input);
-                return input;
-            }
-
-            else
-            {
-                Console.WriteLine("{0} Invalid ", input);
-                return "Invalid";
-            }
+            return CheckValidation(input, pattern);
         }
         public static string ValidateMobileNumber(string input)
         {
             string pattern = "^[1-9]{1,2}[ ][1-9][0-9]{9}$";
-            bool res = Regex.IsMatch(input, pattern);
-            if (res)
-            {
-                Console.WriteLine("{0} Valid ", input);
-                return input;
-            }
-
-            else
-            {
-                Console.WriteLine("{0} Invalid ", input);
-                return "Invalid";
-            }
+            return CheckValidation(input, pattern);
         }
         public static string ValidatePassword(string input)
         {
             string pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]{1}).{8,}$";
-            bool res = Regex.IsMatch(input, pattern);
-            if (res)
-            {
-                Console.WriteLine("{0} Valid ", input);
-                return input;
-            }
-
-            else
-            {
-                Console.WriteLine("{0} Invalid ", input);
-                return "Invalid";
-            }
+            return CheckValidation(input, pattern);
         }
     }
 }
