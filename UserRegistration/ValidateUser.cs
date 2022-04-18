@@ -26,29 +26,64 @@ namespace UserRegistration
         }
         public static string ValidateFirstName(string input)
         {
-            string pattern = "^[A-Z][a-z]{2,}$";
-            return CheckValidation(input,pattern);
+            if (input.Equals(""))
+            {
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_EXCEPTION, "first Name should not be empty");
+            }
+            else
+            {
+                string pattern = "^[A-Z][a-z]{2,}$";
+                return CheckValidation(input, pattern);
+            }
         }
         
         public static string ValidateLastName(string input)
         {
-            string pattern = "^[A-Z][a-z]{2,}$";
-            return CheckValidation(input, pattern);
+            if (input.Equals(""))
+            {
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_EXCEPTION, "last Name should not be empty");
+            }
+            else
+            {
+                string pattern = "^[A-Z][a-z]{2,}$";
+                return CheckValidation(input, pattern);
+            }
         }
         public static string ValidateEmail(string input)
         {
-            string pattern = "^[a-z0-9][-a-z0-9._+]+@([a-z0-9]+[.])+[a-z]{2,5}([.]+[a-z]{2})*$";
-            return CheckValidation(input, pattern);
+            if (input.Equals(""))
+            {
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_EXCEPTION, "email should not be empty");
+            }
+            else
+            {
+                string pattern = "^[a-z0-9][-a-z0-9._+]+@([a-z0-9]+[.])+[a-z]{2,5}([.]+[a-z]{2})*$";
+                return CheckValidation(input, pattern);
+            }
         }
         public static string ValidateMobileNumber(string input)
         {
-            string pattern = "^[1-9]{1,2}[ ][1-9][0-9]{9}$";
-            return CheckValidation(input, pattern);
+            if (input.Equals(""))
+            {
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_EXCEPTION, "mobile number should not be empty");
+            }
+            else
+            {
+                string pattern = "^[1-9]{1,2}[ ][1-9][0-9]{9}$";
+                return CheckValidation(input, pattern);
+            }
         }
         public static string ValidatePassword(string input)
         {
-            string pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]{1}).{8,}$";
-            return CheckValidation(input, pattern);
+            if (input.Equals(""))
+            {
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_EXCEPTION, "password should not be empty");
+            }
+            else
+            {
+                string pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]{1}).{8,}$";
+                return CheckValidation(input, pattern);
+            }
         }
     }
 }
