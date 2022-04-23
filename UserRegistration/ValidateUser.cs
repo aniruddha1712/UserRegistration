@@ -9,6 +9,14 @@ namespace UserRegistration
 {
     public class ValidateUser
     {
+        public ValidateUser()
+        {
+            Console.WriteLine("Default Constructor");
+        }
+        public ValidateUser(string message)
+        {
+            
+        }
         public static string CheckValidation(string input, string pattern)
         {
             bool res = Regex.IsMatch(input, pattern);

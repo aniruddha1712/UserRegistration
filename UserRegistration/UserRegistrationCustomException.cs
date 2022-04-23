@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace UserRegistration
 {
-    public class UserRegistrationCustomException:Exception
+    public class UserRegistrationCustomException : Exception
     {
         public ExceptionType exceptionType;
         public enum ExceptionType
         {
-            NULL_EXCEPTION,EMPTY_EXCEPTION
+            NULL_EXCEPTION, EMPTY_EXCEPTION,
+            CLASS_NOT_FOUND,
+            CONSTRUCTOR_NOT_FOUND
         }
         public UserRegistrationCustomException(ExceptionType exceptionType,string message):base (message)
         {
