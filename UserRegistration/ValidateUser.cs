@@ -32,7 +32,7 @@ namespace UserRegistration
                 return "Invalid";
             }
         }
-        public static string ValidateFirstName(string input)
+        public static Func<string, string> ValidateFirstName = input =>
         {
             if (input.Equals(""))
             {
@@ -43,9 +43,9 @@ namespace UserRegistration
                 string pattern = "^[A-Z][a-z]{2,}$";
                 return CheckValidation(input, pattern);
             }
-        }
-        
-        public static string ValidateLastName(string input)
+        };
+
+        public static Func<string, string> ValidateLastName = input =>
         {
             if (input.Equals(""))
             {
@@ -56,8 +56,8 @@ namespace UserRegistration
                 string pattern = "^[A-Z][a-z]{2,}$";
                 return CheckValidation(input, pattern);
             }
-        }
-        public static string ValidateEmail(string input)
+        };
+        public static Func<string, string> ValidateEmail = input =>
         {
             if (input.Equals(""))
             {
@@ -68,8 +68,8 @@ namespace UserRegistration
                 string pattern = "^[a-z0-9][-a-z0-9._+]+@([a-z0-9]+[.])+[a-z]{2,5}([.]+[a-z]{2})*$";
                 return CheckValidation(input, pattern);
             }
-        }
-        public static string ValidateMobileNumber(string input)
+        };
+        public static Func<string, string> ValidateMobileNumber = input =>
         {
             if (input.Equals(""))
             {
@@ -80,18 +80,18 @@ namespace UserRegistration
                 string pattern = "^[1-9]{1,2}[ ][1-9][0-9]{9}$";
                 return CheckValidation(input, pattern);
             }
-        }
-        public static string ValidatePassword(string input)
-        {
-            if (input.Equals(""))
-            {
-                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_EXCEPTION, "password should not be empty");
-            }
-            else
-            {
-                string pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]{1}).{8,}$";
-                return CheckValidation(input, pattern);
-            }
-        }
+        };
+        public static Func<string, string> ValidatePassword = input =>
+          {
+              if (input.Equals(""))
+              {
+                  throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_EXCEPTION, "password should not be empty");
+              }
+              else
+              {
+                  string pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]{1}).{8,}$";
+                  return CheckValidation(input, pattern);
+              }
+          };
     }
 }
